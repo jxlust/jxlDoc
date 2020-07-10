@@ -1,0 +1,3 @@
+npm install -g i5ting_toc
+
+i5ting_toc -f 网络协议讲解.md -o
