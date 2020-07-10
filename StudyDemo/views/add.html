@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>add</title>
+	<script src="../public/js/jquery.min.js"></script>
+	<script src="../public/js/myajax.js"></script>
+</head>
+<body>
+<form action="/post" method="get">
+		<label>name:</label> <input type="text" name="name" />
+		<lable>msg:</lable> <input type="text" name="message" />
+		<button>提交名字</button>
+	</form>
+
+<button onclick="test()">test</button>
+<button onclick="myajax()">原生ajax测试GET</button>
+<button onclick="myajaxPost()">原生ajax测试POST</button>
+</body>
+<script>
+	function test(){
+		$.ajax('/post',{
+			data:{
+				name: "张阿达",
+				message: "aa"
+			},
+			contentType: 'application/x-www-form-urlencoded',
+			//dataType:'json',//服务器返回json格式数据
+			type:'post',//HTTP请求类型
+			timeout:10000,//超时时间设置为10秒；
+			success:function(data){
+				console.log(data);
+				location.href = '/';
+				 //location.href = data.location;
+			},
+			error:function(xhr,type,errorThrown){
+				console.log(errorThrown);
+			}
+		});
+	}
+	function myajax(){
+		var a =  new AJAX();
+		var options = {
+			url: '/getTestData',
+			type: 'get',
+			success: function(data){
+				console.log(data);
+			},
+			error: function(e){
+				console.log('error',e);
+			}
+			
+		}
+		a.ajax(options);
+	}
+	function myajaxPost(){
+		var a = new AJAX();
+		a.ajax({
+			url: '/post',
+			type: 'post',
+			data: {
+				name: "张z阿达",
+				message: "azza"
+			},
+			success: function(data){
+				console.log('success',data);
+			},
+			error: function(e){
+				console.log('error',e);
+			}
+		})
+	}
+</script>
+
+</html>

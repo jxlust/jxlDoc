@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- <meta charset="UTF-8"> -->
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+	<script type="text/javascript" src="/public/js/jquery.min.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<button>1</button>
+	<button>2</button>
+
+	<a href="/add">去提交</a>
+	
+	<button>3{{ test }}</button>
+	<button onclick="test()" >我的按钮啊</button>
+
+	{{each comments}}
+	<div>{{ $value.name }} - {{ $value.message }}</div>
+	{{/each}}
+	<img src="/public/img/test.jpg" style="max-width: 100%">
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+	$(document).ready(function($){
+		console.log('jq ready...');
+		$(':button').css('background','#555555');	
+	})
+/*$(function(){
+$(':button').css('background','#555555');		
+})*/
+document.addEventListener('DOMContentLoaded',function(){
+	console.log('ready...');
+	$(':button').css('background','#555555');
+	
+})
+
+window.onload = function(){
+	console.log('onload...');
+}
+
+function test(){
+	$(':button').css('background','#ff0000');	
+}
+
+</script>
+<script>
+//立即执行函数表达式 IIFE
+(function() {
+	console.log(2);
+})();
+//
+//	function test1(x = 2, y = x) {
+//		return [x, y];
+//	}
+//	console.log(test1());
+
+	/*var x = 1;
+	let x = x;*/
+	
+	var A = {a: {}};
+	var B = {};
+	A.a = B;
+
+	B.str = 'hello';
+	B.add = function(x,y){
+		return x + y;
+	}
+	B.print = function(){
+		console.log("ai ni!");
+	}
+	
+	;(function(){
+		console.log("yi wang nian");
+	})();
+	//$(B.print());
+	
+//	B = {name: "n",age: "12"};
+//	console.log(B);
+//	console.log(A.a)
+
+//	B = A.a;
+//	B = "hello";
+//	console.log(A.a);
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- <meta charset="UTF-8"> -->
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+	<script type="text/javascript" src="/public/js/jquery.min.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<button>1</button>
+	<button>2</button>
+
+	<a href="/add">去提交</a>
+	
+	<button>3{{ test }}</button>
+	<button onclick="test()" >我的按钮啊</button>
+
+	{{each comments}}
+	<div>{{ $value.name }} - {{ $value.message }}</div>
+	{{/each}}
+	<img src="/public/img/test.jpg" style="max-width: 100%">
+</body>
+
+</html>
