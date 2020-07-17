@@ -46,7 +46,7 @@ const server = http.createServer(function(req,res){
 	}
 	if(pathname === '/'){
 		console.log('front..');
-		fs.readFile('../views/index.html',(err,data) => {
+		fs.readFile('../dist/index.html',(err,data) => {
 			if(err){
 				console.log(err);
 				return res.end('404 not found...');
@@ -54,11 +54,11 @@ const server = http.createServer(function(req,res){
 			res.setHeader('Content-Type','text/html; charset=utf-8');
 			//console.log(data.toString());
 			
-			var htmlStr = template.render(data.toString(),{
-				comments: comments,
-				test: `h哈哈${mymodule.add(1,3222)}`
-			})
-			return  res.end(htmlStr);
+// 			var htmlStr = template.render(data.toString(),{
+// 				comments: comments,
+// 				test: `h哈哈${mymodule.add(1,3222)}`
+// 			})
+			return  res.end(data);
 		});
 	}else if (pathname.indexOf('/public') === 0 || pathname.indexOf('/documents') === 0 ) {
 		//访问公开资源文件
